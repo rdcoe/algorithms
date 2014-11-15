@@ -1,4 +1,4 @@
-package challenges;
+package algo.practice;
 
 import java.util.Arrays;
 
