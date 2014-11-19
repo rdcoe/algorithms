@@ -3,7 +3,7 @@ package algo.practice;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class FindWordInRandomMatrixTest
+public class MatrixTest
 {
     @Test
     public void test3x3MatrixWithOneWordTopRow()

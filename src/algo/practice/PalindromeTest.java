@@ -12,7 +12,7 @@ public class PalindromeTest {
 		int i = 0;
 		boolean[] results = new boolean[input.length];
 		for (String in : input) {
-			results[i++] = PracticeAlgorithms.isPalindrome(in);
+			results[i++] = Palindrome.isPalindrome(in);
 		}
 
 		Assert.assertTrue(results[0]);
@@ -30,7 +30,7 @@ public class PalindromeTest {
 		int i = 0;
 		String[] results = new String[input.length];
 		for (String in : input) {
-			results[i++] = PracticeAlgorithms.findLongestPalindrome(in);
+			results[i++] = Palindrome.findLongestPalindrome(in);
 		}
 
 		Assert.assertEquals("abba", results[0]);

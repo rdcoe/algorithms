@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 
-public class PracticeAlgorithms {
+public class Palindrome {
 
 	public static String findLongestPalindrome(String input) {
 		if (input == null || input.length() == 0)
