@@ -7,6 +7,20 @@ import java.util.TreeMap;
 public class TaxCalculator {
 	TreeMap<Integer, Float> taxTable = new TreeMap<>();
 
+	public static void main(String[] args)
+	{
+		TaxCalculator calc = new TaxCalculator();
+		double income = 134000;
+		calc.taxTable.clear();
+		calc.taxTable.put(0, 0.0f);
+		calc.taxTable.put(44701, 0.15f);
+		calc.taxTable.put(89401, 0.22f);
+		calc.taxTable.put(138586, 0.26f);
+		calc.taxTable.put(Integer.MAX_VALUE, 0.29f);
+		double tax = calc.calculateTax(income);
+		System.out.printf("tax on %6.2f is %6.2f", income, tax);
+	}
+	
 	public TaxCalculator() {
 		taxTable.put(0, 0.0f);
 		taxTable.put(10000, 0.10f);
