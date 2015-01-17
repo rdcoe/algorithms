@@ -7,20 +7,35 @@ import java.util.TreeMap;
 public class TaxCalculator {
 	TreeMap<Integer, Float> taxTable = new TreeMap<>();
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		TaxCalculator calc = new TaxCalculator();
-		double income = 134000;
+		double income = 120000;
+		double basicExemption = 19000;
+		double effective = income - basicExemption;
+		
 		calc.taxTable.clear();
 		calc.taxTable.put(0, 0.0f);
+		calc.taxTable.put(11000, 0.0f);
 		calc.taxTable.put(44701, 0.15f);
 		calc.taxTable.put(89401, 0.22f);
 		calc.taxTable.put(138586, 0.26f);
 		calc.taxTable.put(Integer.MAX_VALUE, 0.29f);
-		double tax = calc.calculateTax(income);
-		System.out.printf("tax on %6.2f is %6.2f", income, tax);
+		double fedtax = calc.calculateTax(effective);
+
+		calc.taxTable.clear();
+		calc.taxTable.put(0, 0.0f);
+		calc.taxTable.put(11000, 0.0f);
+		calc.taxTable.put(43953, 0.15f);
+		calc.taxTable.put(87907, 0.22f);
+		calc.taxTable.put(136270, 0.26f);
+		calc.taxTable.put(Integer.MAX_VALUE, 0.29f);
+		double provtax = calc.calculateTax(effective);
+
+		System.out.printf("tax on %6.2f is %6.2f", income, (fedtax + provtax));
+		System.out.println();
+		System.out.printf("net income on %6.2f is %6.2f", income, (income - (fedtax + provtax)));
 	}
-	
+
 	public TaxCalculator() {
 		taxTable.put(0, 0.0f);
 		taxTable.put(10000, 0.10f);
